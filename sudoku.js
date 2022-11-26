@@ -3,7 +3,6 @@
  * Возвращает игровое поле после попытки его решить.
  * Договорись со своей командой, в каком формате возвращать этот результат.
  */
-function solve(boardString) {
   const size = 9;
   const boxSize = 3;
   function solve(string) {
@@ -29,7 +28,6 @@ function solve(boardString) {
     step();
     return arrBoard;
   }
-}
 function stringToArr(boardString) {
   const re = /.{9}/g;
   return boardString.match(re).map((line) => {
@@ -50,7 +48,37 @@ function findEmptySpace(arrBoard) {
  * Принимает игровое поле в том формате, в котором его вернули из функции solve.
  * Возвращает булевое значение — решено это игровое поле или нет.
  */
-function isSolved(board) {}
+ 
+ function isSolved(arrBoard) {
+  arrBoard.every((line) => {
+    if (line.reduce((a, b) => a + Number(b), 0) !== 45) return false;
+  });
+  for (let i = 0; i < size; i += 1) {
+    const result = [];
+    for (let j = 0; j < size; j += 1) {
+      result.push(arrBoard[j][i]);
+    }
+    if (result.reduce((a, b) => a + Number(b), 0) !== 45) {
+      return false;
+    }
+  }
+  if (
+    arrToString(arrBoard)
+      .split('')
+      .reduce((a, b) => a + Number(b), 0) !== 405
+  ) {
+    return false;
+  }
+  return true;
+}
+
+function arrToString(stepdBoardArr) {
+  return stepdBoardArr
+    .map((line) => {
+      return line.join('');
+    })
+    .join('');
+}
 
 /**
  * Принимает игровое поле в том формате, в котором его вернули из функции solve.
