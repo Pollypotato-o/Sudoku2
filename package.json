@@ -1,25 +1,25 @@
 {
-  "name": "sudoku2",
+  "name": "sudoku",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "## Введение",
+  "main": "runner.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node runner.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Pollypotato-o/Sudoku2.git"
+    "url": "git+https://github.com/Elbrus-Bootcamp/project-sudoku.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Pollypotato-o/Sudoku2/issues"
+    "url": "https://github.com/Elbrus-Bootcamp/project-sudoku/issues"
   },
-  "homepage": "https://github.com/Pollypotato-o/Sudoku2#readme",
+  "homepage": "https://github.com/Elbrus-Bootcamp/project-sudoku#readme",
   "devDependencies": {
-    "eslint": "^8.28.0",
+    "eslint": "^8.8.0",
     "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-plugin-import": "^2.26.0"
+    "eslint-plugin-import": "^2.25.4"
   }
 }
