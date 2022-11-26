@@ -111,6 +111,33 @@ function prettyBoard(board) {
 
   return result.join("\n");
 }
+function validate(currPos, arrBoard, num, boxSize) {
+  const [y, x] = currPos;
+
+  for (let i = 0; i < size; i++) {
+    if (Number(arrBoard[y][i]) === num && i !== x) {
+      return false;
+    }
+  }
+
+  for (let i = 0; i < size; i++) {
+    if (Number(arrBoard[i][x]) === num && i !== y) {
+      return false;
+    }
+  }
+
+  const firstBlockOfBoxY = Math.floor(y / boxSize) * boxSize;
+  const firstBlockOfBoxX = Math.floor(x / boxSize) * boxSize;
+
+  for (let i = firstBlockOfBoxY; i < boxSize + firstBlockOfBoxY; i++) {
+    for (let j = firstBlockOfBoxX; j < boxSize + firstBlockOfBoxX; j++) {
+      if (Number(arrBoard[i][j]) === num && i !== y && j !== x) {
+        return false;
+      }
+    }
+  }
+  return true;
+}
 
 // Экспортировать функции для использования в другом файле (например, readAndSolve.js).
 module.exports = {
